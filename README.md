@@ -2,7 +2,7 @@
 
 ## _First steps working with sets and JOINs in SQL_
 
-Resume: Today you will see how to get needed data based on sets constructions and simple JOINs
+Resume: Today you will see how to get needed data based on sets constructions and simple JOINs.
 
 ## Contents
 
@@ -41,42 +41,41 @@ Resume: Today you will see how to get needed data based on sets constructions an
 
 ![D01_01](misc/images/D01_01.png)
 
-In many aspects, sets are used in Relational Databases. Not just, make UNION or find MINUS between sets. Sets are also good candidates to make recursive queries.
+In many aspects, sets are used in Relational Databases. Not only to do UNION or MINUS between sets. Sets are also good candidates for doing recursive queries.
 
-There are the next set operators in PostgreSQL. 
+There are the following set operators in PostgreSQL:
 - UNION [ALL]
 - EXCEPT [ALL] 
 - INTERSECT [ALL]
 
-Keyword “ALL” means to save duplicates of rows in the result.
-The main rules to work with sets are below
-- The main SQL provides final names of attributes for whole query
-- The attributes of controlled SQL should satisfy number of columns and corresponding family types of main SQL
+The keyword "ALL" means to store duplicate rows in the result.
+The main rules for working with sets are as follows:
+- Main SQL provides final names of attributes for the whole query.
+- The attributes of controlled SQL should match the number of columns and corresponding family types of main SQL.
 
 ![D01_02](misc/images/D01_02.png)
 
-Moreover, SQL sets are useful  to calculate some specific Data Science metrics, for example Jaccard distance between 2 objects based on existing data features.
-
+In addition, SQL sets are useful for calculating some specific data science metrics, such as the Jaccard distance between 2 objects based on existing data features.
 
 ## Chapter II
 ## General Rules
 
-- Use this page as the only reference. Do not listen to any rumors and speculations on how to prepare your solution.
-- Please make sure you are using the latest version of PostgreSQL.
-- That is completely OK if you are using IDE to write a source code (aka SQL script).
-- To be assessed your solution must be in your GIT repository.
-- Your solutions will be evaluated by your piscine mates.
-- You should not leave in your directory any other file than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
-- Do you have a question? Ask your neighbor on the right. Otherwise, try with your neighbor on the left.
+- Use this page as your only reference. Do not listen to rumors and speculations about how to prepare your solution.
+- Make sure you are using the latest version of PostgreSQL.
+- It is perfectly fine if you use the IDE to write source code (aka SQL script).
+- To be evaluated, your solution must be in your GIT repository.
+- Your solutions will be evaluated by your peers.
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
+- Got a question? Ask your neighbor to the right. Otherwise, try your neighbor on the left.
 - Your reference manual: mates / Internet / Google. 
-- Read the examples carefully. They may require things that are not otherwise specified in the subject.
+- Read the examples carefully. You may need things not specified in the topic.
 - And may the SQL-Force be with you!
-- Absolutely everything can be presented in SQL! Let’s start and have fun!
+Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 ## Chapter III
 ## Rules of the day
 
-- Please make sure you have an own database and access for it on your PostgreSQL cluster. 
+- Please make sure you have your own database and access to it on your PostgreSQL cluster. 
 - Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). 
 - All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
 - Please take a look at the Logical View of our Database Model. 
@@ -110,7 +109,7 @@ Moreover, SQL sets are useful  to calculate some specific Data Science metrics, 
 - field menu_id - foreign key to menu
 - field order_date - date (for example 2022-01-01) of person order 
 
-Persons' visit and persons' order are different entities and don't contain any correlation between data. For example, a client can be in one restraunt (just looking at menu) and in this time make an order in different one by phone or by mobile application. Or another case,  just be at home and again make a call with order without any visits.
+People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
 ## Chapter IV
 ## Exercise 00 - Let’s make UNION dance
@@ -122,7 +121,7 @@ Persons' visit and persons' order are different entities and don't contain any c
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please write a SQL statement which returns menu’s identifier and pizza names from `menu` table and person’s identifier and person name from `person` table in one global list (with column names as presented on a sample below) ordered by object_id and then by object_name columns.
+Please write a SQL statement that returns the menu identifier and pizza names from the `menu` table and the person identifier and person name from the `person` table in one global list (with column names as shown in the example below) ordered by object_id and then by object_name columns.
 
 | object_id | object_name |
 | ------ | ------ |
@@ -142,7 +141,7 @@ Please write a SQL statement which returns menu’s identifier and pizza names f
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please modify a SQL statement from “exercise 00” by removing the object_id column. Then change ordering by object_name for part of data from the `person` table and then from `menu` table (like presented on a sample below). Please save duplicates!
+Please modify an SQL statement from "Exercise 00" by removing the object_id column. Then change the order by object_name for part of the data from the `person` table and then from the `menu` table (as shown in an example below). Please save duplicates!
 
 | object_name |
 | ------ |
@@ -165,8 +164,8 @@ Please modify a SQL statement from “exercise 00” by removing the object_id c
 | Language                        | ANSI SQL                                                                                              |
 | **Denied**                               |                                                                                                                          |
 | SQL Syntax Construction                        | `DISTINCT`, `GROUP BY`, `HAVING`, any type of `JOINs`                                                                                              |
-
-Please write a SQL statement which returns unique pizza names from the `menu` table and orders them by pizza_name column in descending mode. Please pay attention to the Denied section.
+ 
+Write an SQL statement that returns unique pizza names from the `menu` table and sorts them by the pizza_name column in descending order. Please note the Denied section.
 
 ## Chapter VII
 ## Exercise 03 - “Hidden” Insights
@@ -180,7 +179,7 @@ Please write a SQL statement which returns unique pizza names from the `menu` ta
 | **Denied**                               |                                                                                                                          |
 | SQL Syntax Construction                        |  any type of `JOINs`                                                                                              |
 
-Please write a SQL statement which returns common rows for attributes order_date, person_id from `person_order` table from one side and visit_date, person_id from `person_visits` table from the other side (please see a sample below). In other words, let’s find identifiers of persons, who visited and ordered some pizza on the same day. Actually, please add ordering by action_date in ascending mode and then by person_id in descending mode.
+Write an SQL statement that returns common rows for attributes order_date, person_id from the `person_orders` table on one side and visit_date, person_id from the `person_visits` table on the other side (see an example below). In other words, let's find the identifiers of persons who visited and ordered a pizza on the same day. Actually, please add the order by action_date in ascending mode and then by person_id in descending mode.
 
 | action_date | person_id |
 | ------ | ------ |
@@ -204,7 +203,7 @@ Please write a SQL statement which returns common rows for attributes order_date
 | **Denied**                               |                                                                                                                          |
 | SQL Syntax Construction                        |  any type of `JOINs`                                                                                              |
 
-Please write a SQL statement which returns a difference (minus) of person_id column values with saving duplicates between `person_order` table and `person_visits` table for order_date and visit_date are for 7th of January of 2022
+Please write a SQL statement that returns a difference (minus) of person_id column values while saving duplicates between `person_order` table and `person_visits` table for order_date and visit_date are for January 7, 2022.
 
 ## Chapter IX
 ## Exercise 05 - Did you hear about Cartesian Product?
@@ -217,7 +216,7 @@ Please write a SQL statement which returns a difference (minus) of person_id col
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please write a SQL statement which returns all possible combinations between `person` and `pizzeria` tables and please set ordering by person identifier and then by pizzeria identifier columns. Please take a look at the result sample below. Please be aware column's names can be different for you.
+Please write a SQL statement that returns all possible combinations between `person` and `pizzeria` tables, and please set the order of the person identifier columns and then the pizzeria identifier columns. Please take a look at the sample result below. Please note that the column names may be different for you.
 
 | person.id | person.name | age | gender | address | pizzeria.id | pizzeria.name | rating |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
@@ -237,7 +236,7 @@ Please write a SQL statement which returns all possible combinations between `pe
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Let's return our mind back to exercise #03 and change our SQL statement to return person names instead of person identifiers and change ordering by action_date in ascending mode and then by person_name in descending mode. Please take a look at a data sample below.
+Let's go back to Exercise #03 and modify our SQL statement to return person names instead of person identifiers and change the order by action_date in ascending mode and then by person_name in descending mode. Take a look at the sample data below.
 
 | action_date | person_name |
 | ------ | ------ |
@@ -257,7 +256,7 @@ Let's return our mind back to exercise #03 and change our SQL statement to retur
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please write a SQL statement which returns the date of order from the `person_order` table and corresponding person name (name and age are formatted as in the data sample below) which made an order from the `person` table. Add a sort by both columns in ascending mode.
+Write an SQL statement that returns the order date from the `person_order` table and the corresponding person name (name and age are formatted as in the data sample below) who made an order from the `person` table. Add a sort by both columns in ascending order.
 
 | order_date | person_information |
 | ------ | ------ |
@@ -281,7 +280,7 @@ Please write a SQL statement which returns the date of order from the `person_or
 | **Denied**                               |                                                                                                                          |
 | SQL Syntax Construction                        | other type of  `JOINs`                                                                                              |
 
-Please rewrite a SQL statement from exercise #07 by using NATURAL JOIN construction. The result must be the same like for exercise #07.  
+Please rewrite a SQL statement from Exercise #07 by using NATURAL JOIN construction. The result must be the same like for Exercise #07.  
 
 ## Chapter XIII
 ## Exercise 09 - IN versus EXISTS
@@ -294,7 +293,7 @@ Please rewrite a SQL statement from exercise #07 by using NATURAL JOIN construct
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please write 2 SQL statements which return a list of pizzerias names which have not been visited by persons by using IN for 1st one and EXISTS for the 2nd one.
+Write 2 SQL statements that return a list of pizzerias that have not been visited by people using IN for the first and EXISTS for the second.
 
 ## Chapter XIV
 ## Exercise 10 - Global JOIN
@@ -307,8 +306,8 @@ Please write 2 SQL statements which return a list of pizzerias names which have 
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please write a SQL statement which returns a list of the person names which made an order for pizza in the corresponding pizzeria. 
-The sample result (with named columns) is provided below and yes ... please make ordering by 3 columns (`person_name`, `pizza_name`, `pizzeria_name`) in ascending mode.
+Please write an SQL statement that returns a list of the names of the people who ordered pizza from the corresponding pizzeria. 
+The sample result (with named columns) is provided below and yes ... please make the ordering by 3 columns (`person_name`, `pizza_name`, `pizzeria_name`) in ascending mode.
 
 | person_name | pizza_name | pizzeria_name | 
 | ------ | ------ | ------ |
